@@ -132,7 +132,6 @@ contract escrow{
     }
     //withdraw fee only judge can withdraw 
      function withdraw_fees () onlyJudge  payable public {
-        require(expiryOfDispute[seller] == 0);
         msg.sender.send(funds[msg.sender]);
         funds[msg.sender] = 0;
     }
