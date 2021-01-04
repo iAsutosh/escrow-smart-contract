@@ -126,7 +126,7 @@ contract escrow{
     // seller can withdraw finds
     // while seller withdraw we will check any expiry time is present or not.
     function withdraw () onlySeller  payable public {
-        require(expiryOfDispute[seller] == 0);
+        require(now > expiryTime);
         msg.sender.send(funds[msg.sender]);
         funds[msg.sender] = 0;
     }
